@@ -2,6 +2,12 @@
 
 The application is a website where users can register, login and add deals that they found online, vote for deals and comment accordingly.
 
+## DEMO
+
+You can check out deployed and working version (however only in Lithuanian language as internationalization isn't applied)
+
+[https://dealas-962d3.firebaseapp.com/](https://dealas-962d3.firebaseapp.com/)
+
 ## Technical introduction
 
 This is a Nuxt SSR application ran as a Google Cloud function with the help of Firebase.
@@ -22,12 +28,4 @@ You just need to run the deployment command:
 
 ```bash
 firebase deploy
-```
-
-## Example
-
-You can check out deployed and working version (however only in Lithuanian language as internationalization isn't applied)
-
-```text
-https://dealas-962d3.firebaseapp.com/
 ```
