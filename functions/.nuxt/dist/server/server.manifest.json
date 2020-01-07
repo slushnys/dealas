@@ -1,0 +1,14 @@
+{
+  "entry": "server.js",
+  "files": {
+    "184727cb54f4410221fd.js": "184727cb54f4410221fd.js",
+    "27cceaa6aed026a1b80a.js": "27cceaa6aed026a1b80a.js",
+    "5bb4b92d2e1d26fd0e27.js": "5bb4b92d2e1d26fd0e27.js",
+    "8a9a1b8b1c44dade9c3b.js": "8a9a1b8b1c44dade9c3b.js",
+    "d43cf7c412c1f9d6fb85.js": "d43cf7c412c1f9d6fb85.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "server.js": "server.js.map"
+  }
+}
