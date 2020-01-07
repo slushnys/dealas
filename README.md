@@ -23,3 +23,11 @@ You just need to run the deployment command:
 ```bash
 firebase deploy
 ```
+
+## Example
+
+You can check out deployed and working version (however only in Lithuanian language as internationalization isn't applied)
+
+```text
+https://dealas-962d3.firebaseapp.com/
+```
