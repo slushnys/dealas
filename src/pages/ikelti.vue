@@ -192,32 +192,33 @@ import {
   computed,
   ref,
   reactive,
-  onMounted
+  onMounted,
+  toRefs
 } from '@vue/composition-api'
 import axios from 'axios'
 import DisplayNameComponent from '@/components/DisplayNameComponent.vue'
 
-// interface MetaDataResponse {
-//   charset: string
-//   title: string
-//   themeColor: string
-//   twitterWidgetsLinkColor: string
-//   author: string
-//   description: string
-//   ogSiteName: string
-//   ogUrl: string
-//   twitterTitle: string
-//   twitterDescription: string
-//   twitterCard: string
-//   twitterSite: string
-//   twitterCreator: string
-//   twitterWidgetsCsp: string
-//   twitterWidgetsDnt: string
-//   ogImage: string
-//   twitterImageSrc: string
-//   images: string
-//   ogDescription: string
-// }
+interface MetaDataResponse {
+  charset: string
+  title: string
+  themeColor: string
+  twitterWidgetsLinkColor: string
+  author: string
+  description: string
+  ogSiteName: string
+  ogUrl: string
+  twitterTitle: string
+  twitterDescription: string
+  twitterCard: string
+  twitterSite: string
+  twitterCreator: string
+  twitterWidgetsCsp: string
+  twitterWidgetsDnt: string
+  ogImage: string
+  twitterImageSrc: string
+  images: string
+  ogDescription: string
+}
 
 export default createComponent({
   setup(_, { root: { $store, $router } }) {
@@ -243,12 +244,12 @@ export default createComponent({
 
       error: { active: false, message: '' }
     })
-    const currentUser = computed(() => $store.getters.auth.getUser)
+    const currentUser = computed(() => $store.getters['auth/getUser'])
     const imageForDisplay = computed(() => state.uploadedImage || state.image)
     const metaParams = async () => {
       const apiURL = `https://europe-west2-dealas-962d3.cloudfunctions.net/scrapeMetaEurope?message=${state.link}`
       const response = await axios.get(apiURL)
-      const data = response.data
+      const data: MetaDataResponse = response.data
       state.title = data.title
       state.image = data.ogImage
       state.image = data.ogImage
@@ -311,7 +312,7 @@ export default createComponent({
       }
     }
     return {
-      state,
+      ...toRefs(state),
       imageForDisplay,
       currentUser,
       useImage,
