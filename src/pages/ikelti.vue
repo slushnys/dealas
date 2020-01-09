@@ -247,12 +247,12 @@ export default createComponent({
     const currentUser = computed(() => $store.getters['auth/getUser'])
     const imageForDisplay = computed(() => state.uploadedImage || state.image)
     const metaParams = async () => {
-      const apiURL = `https://europe-west2-dealas-962d3.cloudfunctions.net/scrapeMetaEurope?message=${state.link}`
+      const apiURL = `https://europe-west1-organic-nation-192309.cloudfunctions.net/scrapeMetaEurope?message=${state.link}`
       const response = await axios.get(apiURL)
       const data: MetaDataResponse = response.data
       state.title = data.title
       state.image = data.ogImage
-      state.image = data.ogImage
+      state.linkImage = data.ogImage
       state.description = data.description || data.ogDescription
     }
     const submit = async () => {

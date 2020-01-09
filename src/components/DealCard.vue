@@ -21,7 +21,7 @@
               xs12
               class="d-flex flex-column text--center"
               ><div class="flex-grow-1 align-self-center">
-                <img :src="deal.image" width="100%" class="deal-image" />
+                <img :src="deal.image" width="auto" class="deal-image" />
               </div>
             </v-col>
             <v-col
@@ -70,7 +70,7 @@
           </div>
         </v-card-text>
         <v-card-actions
-          v-if="deal.endsAt !== null"
+          v-if="deal.endsAt !== ''"
           class="text-center justify-center overline font-weight-thin grey--text"
         >
           <div class="">Galioja iki {{ deal.endsAt }}</div>
