@@ -6,12 +6,12 @@
           <v-row>
             <v-col cols="12" md="5">
               <div class="">
-                <RegistrationComponent></RegistrationComponent>
+                <RegistrationComponent />
               </div>
             </v-col>
-            <v-col md="2"></v-col>
+            <v-col md="2" />
             <v-col cols="12" md="5">
-              <LoginComponent></LoginComponent>
+              <LoginComponent />
             </v-col>
           </v-row>
           <v-row>
@@ -28,8 +28,8 @@
                         color="#4267b2"
                         @click="signIn('facebook')"
                       >
-                        <v-icon>mdi-facebook</v-icon>Facebook</v-btn
-                      >
+                        <v-icon>mdi-facebook</v-icon>Facebook
+                      </v-btn>
                     </v-col>
                   </v-row>
                 </v-card-text>

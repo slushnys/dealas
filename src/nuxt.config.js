@@ -39,6 +39,7 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    '@/plugins/composition-api.js',
     '@/plugins/firebase.js',
     '@/plugins/filters.js',
     '@/plugins/vuetify.js'
@@ -47,6 +48,7 @@ module.exports = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/vuetify',
     '@nuxtjs/eslint-module'
@@ -106,13 +108,11 @@ module.exports = {
      ** You can extend webpack config here
      */
     vendor: ['axios'],
-    extractCSS: true,
-    extend(config, ctx) {
-      if (ctx.isDev) {
-        /*
-         ** Dev configuration
-         */
-      }
+    extractCSS: true
+  },
+  typescript: {
+    typeCheck: {
+      eslint: true
     }
   },
   ssrLog: true

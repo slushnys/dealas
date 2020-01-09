@@ -1,0 +1,19 @@
+# Common
+.github
+node_modules
+dist
+.nuxt
+coverage
+
+# Internals
+.storybook
+.vscode
+internals
+stories
+tools
+
+# Submodule
+src/include
+
+# Static
+src/static

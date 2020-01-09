@@ -25,8 +25,12 @@ export default (context) => {
   const { store } = context
 
   return new Promise((resolve, reject) => {
-    auth.onAuthStateChanged((user) => {
-      resolve(store.dispatch('auth/fetchUser', user))
-    })
+    try {
+      auth.onAuthStateChanged((user) => {
+        resolve(store.dispatch('auth/fetchUser', user))
+      })
+    } catch (error) {
+      reject(error)
+    }
   })
 }

@@ -33,7 +33,7 @@ export const actions = {
     )
       commit('SET_LOCAL_NAME', name)
   },
-  async CREATE_USER_INSTANCE({ commit, state }, userData) {
+  async CREATE_USER_INSTANCE(userData) {
     await db
       .collection('users')
       .doc(userData.uid)

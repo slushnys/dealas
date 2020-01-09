@@ -185,109 +185,143 @@
   </v-row>
 </template>
 
-<script>
+<script lang="ts">
 import { firestore } from 'firebase'
-import { mapGetters } from 'vuex'
-import DisplayNameComponent from '@/components/DisplayNameComponent'
+import {
+  createComponent,
+  computed,
+  ref,
+  reactive,
+  onMounted
+} from '@vue/composition-api'
+import axios from 'axios'
+import DisplayNameComponent from '@/components/DisplayNameComponent.vue'
 
-export default {
-  components: { DisplayNameComponent },
-  data: () => ({
-    fileReader: null,
-    menu1: false,
-    menu2: false,
-    endsAt: null,
-    startsAt: null,
-    newPrice: 0,
-    oldPrice: 0,
-    title: null,
-    description: null,
-    link: null,
-    image: null,
-    linkImage: null,
-    uploadedImage: null,
-    chosenImage: 'url', // 'url' | 'uploaded'
-    distributor: null,
+// interface MetaDataResponse {
+//   charset: string
+//   title: string
+//   themeColor: string
+//   twitterWidgetsLinkColor: string
+//   author: string
+//   description: string
+//   ogSiteName: string
+//   ogUrl: string
+//   twitterTitle: string
+//   twitterDescription: string
+//   twitterCard: string
+//   twitterSite: string
+//   twitterCreator: string
+//   twitterWidgetsCsp: string
+//   twitterWidgetsDnt: string
+//   ogImage: string
+//   twitterImageSrc: string
+//   images: string
+//   ogDescription: string
+// }
 
-    error: { active: false, message: '' }
-  }),
-  computed: {
-    ...mapGetters('auth', { currentUser: 'getUser' }),
-    imageForDisplay() {
-      return this.uploadedImage ? this.uploadedImage : this.image
+export default createComponent({
+  setup(_, { root: { $store, $router } }) {
+    onMounted(() => {
+      console.log('component is mounted!')
+    })
+    const state = reactive({
+      fileReader: ref<FileReader | null>(null),
+      menu1: false,
+      menu2: false,
+      endsAt: '',
+      startsAt: '',
+      newPrice: 0,
+      oldPrice: 0,
+      title: '',
+      description: '',
+      link: '',
+      image: ref<string | object | null>(null),
+      linkImage: '',
+      uploadedImage: ref<string | File>(''),
+      chosenImage: 'url', // 'url' | 'uploaded'
+      distributor: '',
+
+      error: { active: false, message: '' }
+    })
+    const currentUser = computed(() => $store.getters.auth.getUser)
+    const imageForDisplay = computed(() => state.uploadedImage || state.image)
+    const metaParams = async () => {
+      const apiURL = `https://europe-west2-dealas-962d3.cloudfunctions.net/scrapeMetaEurope?message=${state.link}`
+      const response = await axios.get(apiURL)
+      const data = response.data
+      state.title = data.title
+      state.image = data.ogImage
+      state.image = data.ogImage
+      state.description = data.description || data.ogDescription
     }
-  },
-  mounted() {
-    window.v = this
-  },
-  methods: {
-    metaParams(value) {
-      const apiURL = `https://europe-west1-organic-nation-192309.cloudfunctions.net/scrapeMetaEurope?message=${this.link}`
-
-      this.$axios.get(apiURL).then(({ data }) => {
-        this.title = data.title
-        this.image = data.ogImage
-        this.linkImage = data.ogImage
-        this.description = data.description || data.ogDescription
-      })
-    },
-    async submit() {
-      const user = this.$store.state.auth.user.data
-      let image = this.uploadedImage ? this.uploadedImage : this.image
-      const imageType = this.chosenImage
+    const submit = async () => {
+      const user = $store.state.auth.user.data
+      let image = state.uploadedImage ? state.uploadedImage : state.image
+      const imageType = state.chosenImage
       if (imageType === 'url') {
-        image = this.linkImage
+        image = state.linkImage
       } else {
-        image = this.uploadedImage
+        image = state.uploadedImage
       }
       const data = {
-        endsAt: this.endsAt,
-        startsAt: this.startsAt,
-        newPrice: this.newPrice,
-        oldPrice: this.oldPrice,
-        title: this.title,
-        description: this.description,
-        link: this.link,
+        endsAt: state.endsAt,
+        startsAt: state.startsAt,
+        newPrice: state.newPrice,
+        oldPrice: state.oldPrice,
+        title: state.title,
+        description: state.description,
+        link: state.link,
         // image,
-        distributor: this.distributor,
+        distributor: state.distributor,
         score: 0,
         user,
         timestamp: firestore.FieldValue.serverTimestamp()
       }
       try {
-        const dealId = await this.$store.dispatch('deals/CREATE_DEAL', {
+        const dealId = await $store.dispatch('deals/CREATE_DEAL', {
           data,
           imageType,
           image
         })
-        this.$router.push(`/details/${dealId}`)
+        $router.push(`/details/${dealId}`)
       } catch (err) {
-        this.error.active = true
-        this.error.message = err
+        state.error.active = true
+        state.error.message = err
         console.error('error')
       }
-    },
-    previewImage(file) {
-      this.fileReader = new FileReader()
-      this.uploadedImage = file
-      this.chosenImage = 'uploaded'
-      this.fileReader.addEventListener('load', () => {
-        this.image = this.fileReader.result
+    }
+
+    const previewImage = (file: File) => {
+      state.fileReader = new FileReader()
+      state.uploadedImage = file
+      state.chosenImage = 'uploaded'
+      state.fileReader.addEventListener('load', () => {
+        state.image = state.fileReader ? state.fileReader.result : null
       })
       if (file) {
-        this.fileReader.readAsDataURL(file)
-      }
-    },
-    useImage(type) {
-      this.chosenImage = type
-      if (type === 'url') {
-        this.image = this.linkImage
-      } else {
-        this.image = this.fileReader.result
+        state.fileReader.readAsDataURL(file)
       }
     }
-  }
-}
+    const useImage = (type: string) => {
+      state.chosenImage = type
+      if (type === 'url') {
+        state.image = state.linkImage
+      } else {
+        state.image = state.fileReader ? state.fileReader.result : null
+      }
+    }
+    return {
+      state,
+      imageForDisplay,
+      currentUser,
+      useImage,
+      previewImage,
+      submit,
+      metaParams
+    }
+  },
+  components: { DisplayNameComponent }
+})
 </script>
 
 <style scoped></style>

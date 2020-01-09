@@ -110,7 +110,7 @@ export const actions = {
       throw error
     }
   },
-  async POST_COMMENT({ commit }, data) {
+  async POST_COMMENT(data) {
     try {
       await db
         .collection('deals')
