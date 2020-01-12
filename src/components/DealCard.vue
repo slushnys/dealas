@@ -21,7 +21,7 @@
               xs12
               class="d-flex flex-column text--center"
               ><div class="flex-grow-1 align-self-center">
-                <img :src="deal.image" width="auto" class="deal-image" />
+                <img :src="deal.image" :width="imageWidth" class="deal-image" />
               </div>
             </v-col>
             <v-col
@@ -103,6 +103,9 @@ export default {
     },
     descriptionCol() {
       return this.deal.image ? 9 : 12
+    },
+    imageWidth() {
+      return this.$vuetify.breakpoint.mdAndDown ? '100%' : 'auto'
     }
   },
   methods: {
