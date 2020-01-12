@@ -65,7 +65,6 @@ export const actions = {
   },
   async CREATE_DEAL({ commit }, { data: deal, imageType, image }) {
     if (deal === null) {
-      console.error('no deal was provided')
     }
     const dealId = `${slugify(deal.title)}-${randomString()}`
     let imageURL = image
@@ -79,17 +78,14 @@ export const actions = {
       } catch (error) {
         switch (error.code) {
           case 'storage/unauthorized':
-            console.log('storage/unauthorized')
             // User doesn't have permission to access the object
             break
 
           case 'storage/canceled':
-            console.log('storage/canceled')
             // User canceled the upload
             break
 
           case 'storage/unknown':
-            console.log('storage/unknown')
             // Unknown error occurred, inspect error.serverResponse
             break
         }
@@ -97,18 +93,14 @@ export const actions = {
     }
 
     const dealData = { ...deal, id: dealId, image: imageURL }
-    try {
-      await db
-        .collection('deals')
-        .doc(dealId)
-        .set(dealData)
 
-      commit('ADD_DEAL', { id: dealId, dealData })
-      return dealId
-    } catch (error) {
-      console.error('error creating a document', error)
-      throw error
-    }
+    await db
+      .collection('deals')
+      .doc(dealId)
+      .set(dealData)
+
+    commit('ADD_DEAL', { id: dealId, dealData })
+    return dealId
   },
   async POST_COMMENT(data) {
     try {
@@ -117,10 +109,7 @@ export const actions = {
         .doc(data.dealId)
         .collection('comments')
         .add(data)
-      console.log('Successfully added a comment')
-    } catch (e) {
-      console.error(e)
-    }
+    } catch (e) {}
   },
   async VIEW_DEAL({ commit }, dealId) {
     const dealRef = db.collection('deals').doc(dealId)
@@ -147,7 +136,6 @@ export const actions = {
       })
   },
   LEAVE_DEAL({ commit }) {
-    console.log('Leave initiated in deal')
     if (isFunction(unsubscribeComments)) unsubscribeComments()
     commit('SET_DEAL', null)
   },

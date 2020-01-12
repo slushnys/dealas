@@ -12,6 +12,9 @@
     "node": "10"
   },
   "dependencies": {
+    "@nuxt/typescript-runtime": "^0.3.6",
+    "@nuxt/typescript-build": "0.5.5",
+    "@vue/composition-api": "^0.3.4",
     "@nuxt/http": "^0.3.8",
     "@nuxtjs/axios": "^5.9.0",
     "@nuxtjs/eslint-module": "^1.0.0",

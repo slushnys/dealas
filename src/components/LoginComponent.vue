@@ -52,7 +52,6 @@ export default {
         await auth().signInWithEmailAndPassword(this.email, this.password)
         this.$router.push('/')
       } catch (e) {
-        console.error(e)
         this.error.active = true
         this.error.message = e.message
         // throw e

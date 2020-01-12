@@ -222,9 +222,7 @@ interface MetaDataResponse {
 
 export default createComponent({
   setup(_, { root: { $store, $router } }) {
-    onMounted(() => {
-      console.log('component is mounted!')
-    })
+    onMounted(() => {})
     const state = reactive({
       fileReader: ref<FileReader | null>(null),
       menu1: false,
@@ -288,7 +286,6 @@ export default createComponent({
       } catch (err) {
         state.error.active = true
         state.error.message = err
-        console.error('error')
       }
     }
 

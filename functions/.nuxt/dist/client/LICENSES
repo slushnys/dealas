@@ -16,13 +16,6 @@
  * @license MIT
  */
 
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -262,6 +255,8 @@ and limitations under the License.
 
 /*! ./VBadge.sass */
 
+/*! ../VIcon/VIcon */
+
 /*! ../../mixins/positionable */
 
 /*!****************************************!*\
@@ -346,7 +341,13 @@ and limitations under the License.
 
 /*! ./VBreadcrumbs.sass */
 
-/*! . */
+/*! ./VBreadcrumbsItem */
+
+/*! ./VBreadcrumbsDivider */
+
+/*!************************************************************!*\
+  !*** ./src/components/VBreadcrumbs/VBreadcrumbsDivider.ts ***!
+  \************************************************************/
 
 /*!*********************************************************!*\
   !*** ./src/components/VBreadcrumbs/VBreadcrumbsItem.ts ***!
@@ -361,8 +362,6 @@ and limitations under the License.
 /*! exports provided: VBreadcrumbs, VBreadcrumbsItem, VBreadcrumbsDivider, default */
 
 /*! ./VBreadcrumbs */
-
-/*! ./VBreadcrumbsItem */
 
 /*!***************************************!*\
   !*** ./src/components/VBtn/VBtn.sass ***!
@@ -498,6 +497,8 @@ and limitations under the License.
 
 /*! ../../../util/helpers */
 
+/*! ../modes */
+
 /*! ../util/events */
 
 /*!********************************************************************!*\
@@ -512,11 +513,41 @@ and limitations under the License.
   !*** ./src/components/VCalendar/mixins/times.ts ***!
   \**************************************************/
 
+/*!**************************************************!*\
+  !*** ./src/components/VCalendar/modes/column.ts ***!
+  \**************************************************/
+
+/*! exports provided: column */
+
+/*! ./common */
+
+/*!**************************************************!*\
+  !*** ./src/components/VCalendar/modes/common.ts ***!
+  \**************************************************/
+
+/*! exports provided: getVisuals, hasOverlap, setColumnCount, getRange, getDayRange, getNormalizedRange, getOpenGroup, getOverlapGroupHandler */
+
+/*!*************************************************!*\
+  !*** ./src/components/VCalendar/modes/index.ts ***!
+  \*************************************************/
+
+/*! exports provided: CalendarEventOverlapModes */
+
+/*! ./stack */
+
+/*! ./column */
+
+/*!*************************************************!*\
+  !*** ./src/components/VCalendar/modes/stack.ts ***!
+  \*************************************************/
+
+/*! exports provided: stack */
+
 /*!*************************************************!*\
   !*** ./src/components/VCalendar/util/events.ts ***!
   \*************************************************/
 
-/*! exports provided: parseEvent, isEventOn, isEventOverlapping */
+/*! exports provided: parseEvent, isEventOn, isEventStart, isEventOverlapping */
 
 /*! ./timestamp */
 
@@ -524,13 +555,13 @@ and limitations under the License.
   !*** ./src/components/VCalendar/util/props.ts ***!
   \************************************************/
 
-/*! exports provided: default, validateNumber */
+/*! exports provided: default, validateNumber, validateWeekdays */
 
 /*!****************************************************!*\
   !*** ./src/components/VCalendar/util/timestamp.ts ***!
   \****************************************************/
 
-/*! exports provided: PARSE_REGEX, PARSE_TIME, DAYS_IN_MONTH, DAYS_IN_MONTH_LEAP, DAYS_IN_MONTH_MIN, DAYS_IN_MONTH_MAX, MONTH_MAX, MONTH_MIN, DAY_MIN, DAYS_IN_WEEK, MINUTES_IN_HOUR, HOURS_IN_DAY, FIRST_HOUR, getStartOfWeek, getEndOfWeek, getStartOfMonth, getEndOfMonth, parseTime, validateTimestamp, parseTimestamp, parseDate, getDayIdentifier, getTimeIdentifier, getTimestampIdentifier, updateRelative, updateMinutes, updateWeekday, updateFormatted, getWeekday, isLeapYear, daysInMonth, copyTimestamp, padNumber, getDate, getTime, nextMinutes, nextDay, prevDay, relativeDays, findWeekday, getWeekdaySkips, createDayList, createIntervalList, createNativeLocaleFormatter */
+/*! exports provided: PARSE_REGEX, PARSE_TIME, DAYS_IN_MONTH, DAYS_IN_MONTH_LEAP, DAYS_IN_MONTH_MIN, DAYS_IN_MONTH_MAX, MONTH_MAX, MONTH_MIN, DAY_MIN, DAYS_IN_WEEK, MINUTES_IN_HOUR, HOURS_IN_DAY, FIRST_HOUR, getStartOfWeek, getEndOfWeek, getStartOfMonth, getEndOfMonth, parseTime, validateTimestamp, parseTimestamp, parseDate, getDayIdentifier, getTimeIdentifier, getTimestampIdentifier, updateRelative, updateMinutes, updateWeekday, updateFormatted, getWeekday, isLeapYear, daysInMonth, copyTimestamp, padNumber, getDate, getTime, nextMinutes, nextDay, prevDay, relativeDays, diffMinutes, findWeekday, getWeekdaySkips, createDayList, createIntervalList, createNativeLocaleFormatter */
 
 /*!*****************************************!*\
   !*** ./src/components/VCard/VCard.sass ***!
@@ -1080,6 +1111,8 @@ and limitations under the License.
 
 /*! ./VDialog.sass */
 
+/*! ../VThemeProvider */
+
 /*! ../../mixins/activatable */
 
 /*! ../../mixins/dependent */
@@ -1091,8 +1124,6 @@ and limitations under the License.
 /*! ../../mixins/stackable */
 
 /*! ../../directives/click-outside */
-
-/*! ../../util/ThemeProvider */
 
 /*!*****************************************!*\
   !*** ./src/components/VDialog/index.ts ***!
@@ -2146,6 +2177,24 @@ and limitations under the License.
 
 /*! ./VTextarea */
 
+/*!*********************************************************!*\
+  !*** ./src/components/VThemeProvider/VThemeProvider.ts ***!
+  \*********************************************************/
+
+/*!************************************************!*\
+  !*** ./src/components/VThemeProvider/index.ts ***!
+  \************************************************/
+
+/*! exports provided: VThemeProvider, default */
+
+/*! ./VThemeProvider */
+
+/*!******************************************************!*\
+  !*** ./src/components/VTimePicker/SelectingTimes.ts ***!
+  \******************************************************/
+
+/*! exports provided: SelectingTimes */
+
 /*!***************************************************!*\
   !*** ./src/components/VTimePicker/VTimePicker.ts ***!
   \***************************************************/
@@ -2157,6 +2206,8 @@ and limitations under the License.
 /*! ./VTimePickerClock */
 
 /*! ../VDatePicker/util/pad */
+
+/*! ./SelectingTimes */
 
 /*!**********************************************************!*\
   !*** ./src/components/VTimePicker/VTimePickerClock.sass ***!
@@ -2180,13 +2231,13 @@ and limitations under the License.
 
 /*! ../VDatePicker/util */
 
-/*! ./VTimePicker */
-
 /*!*********************************************!*\
   !*** ./src/components/VTimePicker/index.ts ***!
   \*********************************************/
 
 /*! exports provided: VTimePicker, VTimePickerClock, VTimePickerTitle, default */
+
+/*! ./VTimePicker */
 
 /*!*************************************************!*\
   !*** ./src/components/VTimeline/VTimeline.sass ***!
@@ -2310,7 +2361,7 @@ and limitations under the License.
   !*** ./src/components/index.ts ***!
   \*********************************/
 
-/*! exports provided: VApp, VAppBar, VAppBarNavIcon, VAlert, VAutocomplete, VAvatar, VBadge, VBanner, VBottomNavigation, VBottomSheet, VBreadcrumbs, VBreadcrumbsItem, VBreadcrumbsDivider, VBtn, VBtnToggle, VCalendar, VCalendarDaily, VCalendarWeekly, VCalendarMonthly, VCard, VCardActions, VCardSubtitle, VCardText, VCardTitle, VCarousel, VCarouselItem, VCheckbox, VSimpleCheckbox, VChip, VChipGroup, VColorPicker, VColorPickerSwatches, VColorPickerCanvas, VContent, VCombobox, VCounter, VData, VDataIterator, VDataFooter, VDataTable, VEditDialog, VTableOverflow, VDataTableHeader, VSimpleTable, VVirtualTable, VDatePicker, VDatePickerTitle, VDatePickerHeader, VDatePickerDateTable, VDatePickerMonthTable, VDatePickerYears, VDialog, VDivider, VExpansionPanels, VExpansionPanel, VExpansionPanelHeader, VExpansionPanelContent, VFileInput, VFooter, VForm, VContainer, VCol, VRow, VSpacer, VLayout, VFlex, VHover, VIcon, VImg, VInput, VItem, VItemGroup, VLabel, VLazy, VListItemActionText, VListItemContent, VListItemTitle, VListItemSubtitle, VList, VListGroup, VListItem, VListItemAction, VListItemAvatar, VListItemIcon, VListItemGroup, VMenu, VMessages, VNavigationDrawer, VOverflowBtn, VOverlay, VPagination, VSheet, VParallax, VPicker, VProgressCircular, VProgressLinear, VRadioGroup, VRadio, VRangeSlider, VRating, VResponsive, VSelect, VSkeletonLoader, VSlider, VSlideGroup, VSlideItem, VSnackbar, VSparkline, VSpeedDial, VStepper, VStepperContent, VStepperStep, VStepperHeader, VStepperItems, VSubheader, VSwitch, VSystemBar, VTabs, VTab, VTabItem, VTabsItems, VTabsSlider, VTextarea, VTextField, VTimeline, VTimelineItem, VTimePicker, VTimePickerClock, VTimePickerTitle, VToolbar, VToolbarItems, VToolbarTitle, VTooltip, VTreeview, VTreeviewNode, VWindow, VWindowItem, VCarouselTransition, VCarouselReverseTransition, VTabTransition, VTabReverseTransition, VMenuTransition, VFabTransition, VDialogTransition, VDialogBottomTransition, VFadeTransition, VScaleTransition, VScrollXTransition, VScrollXReverseTransition, VScrollYTransition, VScrollYReverseTransition, VSlideXTransition, VSlideXReverseTransition, VSlideYTransition, VSlideYReverseTransition, VExpandTransition, VExpandXTransition */
+/*! exports provided: VApp, VAppBar, VAppBarNavIcon, VAlert, VAutocomplete, VAvatar, VBadge, VBanner, VBottomNavigation, VBottomSheet, VBreadcrumbs, VBreadcrumbsItem, VBreadcrumbsDivider, VBtn, VBtnToggle, VCalendar, VCalendarDaily, VCalendarWeekly, VCalendarMonthly, VCard, VCardActions, VCardSubtitle, VCardText, VCardTitle, VCarousel, VCarouselItem, VCheckbox, VSimpleCheckbox, VChip, VChipGroup, VColorPicker, VColorPickerSwatches, VColorPickerCanvas, VContent, VCombobox, VCounter, VData, VDataIterator, VDataFooter, VDataTable, VEditDialog, VTableOverflow, VDataTableHeader, VSimpleTable, VVirtualTable, VDatePicker, VDatePickerTitle, VDatePickerHeader, VDatePickerDateTable, VDatePickerMonthTable, VDatePickerYears, VDialog, VDivider, VExpansionPanels, VExpansionPanel, VExpansionPanelHeader, VExpansionPanelContent, VFileInput, VFooter, VForm, VContainer, VCol, VRow, VSpacer, VLayout, VFlex, VHover, VIcon, VImg, VInput, VItem, VItemGroup, VLabel, VLazy, VListItemActionText, VListItemContent, VListItemTitle, VListItemSubtitle, VList, VListGroup, VListItem, VListItemAction, VListItemAvatar, VListItemIcon, VListItemGroup, VMenu, VMessages, VNavigationDrawer, VOverflowBtn, VOverlay, VPagination, VSheet, VParallax, VPicker, VProgressCircular, VProgressLinear, VRadioGroup, VRadio, VRangeSlider, VRating, VResponsive, VSelect, VSkeletonLoader, VSlider, VSlideGroup, VSlideItem, VSnackbar, VSparkline, VSpeedDial, VStepper, VStepperContent, VStepperStep, VStepperHeader, VStepperItems, VSubheader, VSwitch, VSystemBar, VTabs, VTab, VTabItem, VTabsItems, VTabsSlider, VTextarea, VTextField, VThemeProvider, VTimeline, VTimelineItem, VTimePicker, VTimePickerClock, VTimePickerTitle, VToolbar, VToolbarItems, VToolbarTitle, VTooltip, VTreeview, VTreeviewNode, VWindow, VWindowItem, VCarouselTransition, VCarouselReverseTransition, VTabTransition, VTabReverseTransition, VMenuTransition, VFabTransition, VDialogTransition, VDialogBottomTransition, VFadeTransition, VScaleTransition, VScrollXTransition, VScrollXReverseTransition, VScrollYTransition, VScrollYReverseTransition, VSlideXTransition, VSlideXReverseTransition, VSlideYTransition, VSlideYReverseTransition, VExpandTransition, VExpandXTransition */
 
 /*! ./VGrid */
 
@@ -2412,8 +2463,6 @@ and limitations under the License.
 
 /*! ./services */
 
-/*! ./styles/main.sass */
-
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
@@ -2433,8 +2482,214 @@ and limitations under the License.
 /*! ./util/console */
 
 /*!**************************!*\
+  !*** ./src/locale/af.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/ar.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/ca.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/cs.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/de.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/el.ts ***!
+  \**************************/
+
+/*!**************************!*\
   !*** ./src/locale/en.ts ***!
   \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/es.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/et.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/fa.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/fr.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/he.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/hr.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/hu.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/id.ts ***!
+  \**************************/
+
+/*!*****************************!*\
+  !*** ./src/locale/index.ts ***!
+  \*****************************/
+
+/*! exports provided: af, ar, ca, cs, de, el, en, es, et, fa, fr, hr, hu, he, id, it, ja, ko, lv, lt, nl, no, pl, pt, ro, ru, sl, srCyrl, sv, th, tr, uk, zhHans, zhHant */
+
+/*! ./af */
+
+/*! ./ar */
+
+/*! ./ca */
+
+/*! ./cs */
+
+/*! ./de */
+
+/*! ./el */
+
+/*! ./en */
+
+/*! ./es */
+
+/*! ./et */
+
+/*! ./fa */
+
+/*! ./fr */
+
+/*! ./hr */
+
+/*! ./hu */
+
+/*! ./he */
+
+/*! ./id */
+
+/*! ./it */
+
+/*! ./ja */
+
+/*! ./ko */
+
+/*! ./lv */
+
+/*! ./lt */
+
+/*! ./nl */
+
+/*! ./no */
+
+/*! ./pl */
+
+/*! ./pt */
+
+/*! ./ro */
+
+/*! ./ru */
+
+/*! ./sl */
+
+/*! ./sr-Cyrl */
+
+/*! ./sv */
+
+/*! ./th */
+
+/*! ./tr */
+
+/*! ./uk */
+
+/*! ./zh-Hans */
+
+/*! ./zh-Hant */
+
+/*!**************************!*\
+  !*** ./src/locale/it.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/ja.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/ko.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/lt.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/lv.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/nl.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/no.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/pl.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/pt.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/ro.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/ru.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/sl.ts ***!
+  \**************************/
+
+/*!*******************************!*\
+  !*** ./src/locale/sr-Cyrl.ts ***!
+  \*******************************/
+
+/*!**************************!*\
+  !*** ./src/locale/sv.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/th.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/tr.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/locale/uk.ts ***!
+  \**************************/
+
+/*!*******************************!*\
+  !*** ./src/locale/zh-Hans.ts ***!
+  \*******************************/
+
+/*!*******************************!*\
+  !*** ./src/locale/zh-Hant.ts ***!
+  \*******************************/
 
 /*!*****************************************!*\
   !*** ./src/mixins/activatable/index.ts ***!
@@ -2624,6 +2879,16 @@ and limitations under the License.
   !*** ./src/mixins/validatable/index.ts ***!
   \*****************************************/
 
+/*!**************************************!*\
+  !*** ./src/presets/default/index.ts ***!
+  \**************************************/
+
+/*! exports provided: preset */
+
+/*! ../../styles/main.sass */
+
+/*! ../../locale */
+
 /*!*******************************************!*\
   !*** ./src/services/application/index.ts ***!
   \*******************************************/
@@ -2672,8 +2937,6 @@ and limitations under the License.
 
 /*! exports provided: convertToComponentDeclarations, default */
 
-/*! ./fa */
-
 /*!******************************************!*\
   !*** ./src/services/icons/presets/fa.ts ***!
   \******************************************/
@@ -2712,7 +2975,7 @@ and limitations under the License.
   !*** ./src/services/index.ts ***!
   \*******************************/
 
-/*! exports provided: Application, Breakpoint, Goto, Icons, Lang, Theme */
+/*! exports provided: Application, Breakpoint, Goto, Icons, Lang, Presets, Theme */
 
 /*! ./application */
 
@@ -2732,7 +2995,13 @@ and limitations under the License.
 
 /*! exports provided: Lang */
 
-/*! ../../locale/en */
+/*!***************************************!*\
+  !*** ./src/services/presets/index.ts ***!
+  \***************************************/
+
+/*! exports provided: Presets */
+
+/*! ../../presets/default */
 
 /*!***************************************!*\
   !*** ./src/services/service/index.ts ***!
@@ -2765,14 +3034,6 @@ and limitations under the License.
 /*!******************************!*\
   !*** ./src/styles/main.sass ***!
   \******************************/
-
-/*!***********************************!*\
-  !*** ./src/util/ThemeProvider.ts ***!
-  \***********************************/
-
-/*! ../mixins/themeable */
-
-/*! ./mixins */
 
 /*!*******************************************!*\
   !*** ./src/util/color/transformCIELAB.ts ***!
@@ -2814,7 +3075,7 @@ and limitations under the License.
   !*** ./src/util/helpers.ts ***!
   \*****************************/
 
-/*! exports provided: createSimpleFunctional, directiveConfig, addOnceEventListener, passiveSupported, addPassiveEventListener, getNestedValue, deepEqual, getObjectValueByPath, getPropertyFromItem, createRange, getZIndex, escapeHTML, filterObjectOnKeys, convertToUnit, kebabCase, isObject, keyCodes, remapInternalIcon, keys, camelize, arrayDiff, upperFirst, groupByProperty, wrapInArray, sortItems, defaultFilter, searchItems, getSlotType, debounce, getPrefixedScopedSlots, getSlot, clamp, padEnd, chunk, humanReadableFileSize, camelizeObjectKeys */
+/*! exports provided: createSimpleFunctional, directiveConfig, addOnceEventListener, passiveSupported, addPassiveEventListener, getNestedValue, deepEqual, getObjectValueByPath, getPropertyFromItem, createRange, getZIndex, escapeHTML, filterObjectOnKeys, convertToUnit, kebabCase, isObject, keyCodes, remapInternalIcon, keys, camelize, arrayDiff, upperFirst, groupItems, wrapInArray, sortItems, defaultFilter, searchItems, getSlotType, debounce, getPrefixedScopedSlots, getSlot, clamp, padEnd, chunk, humanReadableFileSize, camelizeObjectKeys, mergeDeep */
 
 /*!*******************************!*\
   !*** ./src/util/mergeData.ts ***!

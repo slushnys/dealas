@@ -131,10 +131,8 @@ export default {
       } catch (error) {
         this.snackbar = true
         // Handle Errors here.
-        const errorCode = error.code
-        const errorMessage = error.message
-        // ...
-        console.error(errorCode, errorMessage)
+        // const errorCode = error.code
+        // const errorMessage = error.message
       }
     }
   }
