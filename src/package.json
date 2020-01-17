@@ -9,7 +9,8 @@
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "@nuxt/http": "^0.3.8",
@@ -20,23 +21,79 @@
     "axios": "^0.19.1",
     "core-js": "^2.6.11",
     "firebase": "^7.6.1",
+    "install": "^0.13.0",
     "lodash": "^4.17.15",
+    "npm": "^6.13.6",
     "nuxt": "^2.11.0",
     "vuetify": "^2.2.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
     "@nuxt/typescript-build": "^0.5.5",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/vuetify": "^1.9.1",
-    "babel-eslint": "^10.0.1",
+    "@types/jest": "^24.9.0",
+    "@types/lodash": "^4.14.149",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "@vue/eslint-config-typescript": "^5.0.1",
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
+    "babel-plugin-transform-decorators": "^6.24.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-nuxt": "^0.5.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^6.1.2",
+    "jest": "^24.9.0",
     "prettier": "^1.19.1",
-    "vue-eslint-parser": "^7.0.0"
+    "ts-jest": "^24.3.0",
+    "vue-eslint-parser": "^7.0.0",
+    "vue-jest": "^3.0.5",
+    "vuex-module-decorators": "^0.11.0"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/*|(\\.|/)spec)\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.ts?$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "testURL": "http://localhost/"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "dynamic-import-node",
+        {
+          "noInterop": true
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      }
+    }
   }
 }
